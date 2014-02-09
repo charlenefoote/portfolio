@@ -1,0 +1,813 @@
+/*********************
+GENERAL STYLES
+*********************/
+
+body {
+	height: 100%;
+	font-family: $ckf-paragraphs;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: normal;
+	color: $white;
+	background-color: $aqua;
+	font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+}
+
+
+
+
+/*********************
+LAYOUT STYLES
+*********************/
+
+.exterior-wrap {  
+	position: relative;
+}
+	
+	.interior-wrap {  
+		max-width: 700px;
+		position: relative;
+		padding: 3em 0;
+		margin: 0 auto;
+		
+	}
+
+.bg-fluid {
+	background-image: url(../img/triangle-bg.svg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: 100%;
+	background-attachment: fixed;
+	
+	@media screen and (max-width: 55em) {
+		background-size: 150%;
+		background-attachment: scroll;
+	}
+	
+	&.pg404 {
+		background-image: url(../img/triangle-bg.svg), url(../img/ralphie.png);
+		background-position: center top, bottom left;
+		background-size: 100%, auto;
+		
+		@media screen and (max-width: 44em) {
+			background-image: url(../img/triangle-bg.svg);
+			background-position: center top;
+			background-size: 100%;
+		}
+	}
+}
+
+
+/*********************
+LINK STYLES
+*********************/
+
+a {
+	color: $link-color;
+	text-decoration: none;
+	font-weight: 300;
+	@include transition(all 0.2s ease-in-out);
+
+	/* on hover */
+	&:hover, &:focus {
+		color: $link-hover;
+		text-decoration: underline;
+		outline: none;
+	}
+
+	/* on click */
+	&:active {
+		outline: 0;
+
+	}
+
+	/* mobile tap color */
+	&:link {
+		/*
+		this highlights links on iPhones/iPads.
+		so it basically works like the :hover selector
+		for mobile devices.
+		*/
+		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+	}
+}
+
+/*********************
+FORM STYLES
+*********************/
+
+input[type="text"], textarea {
+	@include box-shadow( none );
+	padding: 12px 16px !important;
+	border: none;
+	font-size: 15px !important;
+	width: 100%;
+	color: $dark-color;
+	font-family: $ckf-paragraphs;
+	&:focus {
+		outline: none;	
+		border-left: solid 3px $aqua;	
+	}
+}
+
+input[type="text"], textarea, select {
+	margin: 0 3% 5%;
+}
+
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+
+h1, h2, h3, h4, h5, h6 { 
+	font-family: $ckf-headers; 
+	text-transform: uppercase;
+	font-weight: 400;-webkit-font-smoothing: antialiased;
+}
+
+h2 {
+	margin: .5em auto .25em;
+	font-size: 4.3em;
+	line-height: 1em;
+	text-align: center;
+			
+	@media screen and (max-width: 55em) {
+		font-size: 3.7em;
+	}
+
+	@media screen and (max-width: 44em) {
+		width: 90%;
+		font-size: 4.3em;
+	}
+}
+
+
+/*********************
+HEADER SYTLES
+*********************/
+
+header#site-header, #error-msg { 
+	height: 100vh;
+	
+	@media screen and (max-width: 69.5em) {
+		height: 100%;
+	}
+	
+	@media screen and (max-height: 680px) {
+		margin-bottom: 4em;
+	}
+
+
+	h1 {
+		margin: 1em 0 0;
+		text-align: center;
+		img {
+			width: 300px;
+			
+			@media screen and (max-width: 44em) {
+				width: 90%;
+			}
+		}
+	}
+	
+	h2 { 
+		font-size: 4.5625em;
+    	letter-spacing: 0.015625em;
+    	text-align: left;
+		
+		@media screen and (max-width: 69.5em) {
+			font-size: 4.725em;
+			letter-spacing: 0em;
+			text-align: left;
+		}
+		
+		@media screen and (max-width: 44em) {
+			font-size: 2.1em;
+			letter-spacing: -0.02em;
+			color: $bright-color;
+		}
+		
+	}
+	h3 {
+		padding: 10px 20px;
+		background: $bright-color;
+		color: $light-color;
+		font-weight: 400;
+		font-size: 31px;
+		float: right;
+		position: relative;
+		letter-spacing: .04em;
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: -20px;
+			left: 30px;
+			border-style: solid;
+			border-width: 20px 20px 0 0;
+			border-color: $bright-color transparent;
+			display: block;
+			width: 0;
+			z-index: 1;
+		}
+	}
+	p {
+		margin: 0 auto 1.2em;
+		line-height: 1.9em;
+		font-size: 1.2em;
+		letter-spacing: .05em;
+		font-weight: 100;
+		@media screen and (max-width: 55em) {
+			font-weight: 300;
+		}
+		@media screen and (max-width: 44em) {
+			width: 90%;
+		}
+	}
+}
+
+#page-header {
+	overflow: hidden; 
+	padding: 2em 0;
+	
+	h1 {
+		float: left;
+		margin: 0;
+		a {
+			margin: 0;
+		}
+	}
+	h2{
+		width: auto;
+		padding-top: 4vh;
+		float: right;
+		font-size: 2em;
+		color: $white;
+	}
+}
+
+#error-msg {
+
+	&.interior-wrap {
+		max-width: 524px;
+	}
+	
+	h2 {
+		font-size: 5.2em;
+		margin-bottom: 0;
+		
+		@media screen and (max-width: 44em) {
+			font-size: 3.125em;
+		}
+		
+	}
+	
+	p {
+		border-bottom: 2px solid rgba($white, 0.3);
+		padding-bottom: 1.2em;
+		text-align: justify;
+	}
+
+}
+
+
+/*********************
+PORTFOLIO STYLES
+*********************/
+
+#portfolio {
+	height: 100vh;
+	margin: 0;
+	background-color: $white;
+	background-image: url(../img/triangle-bg-gray.svg);
+	@include clear-fix;
+ 	 
+	@media screen and (max-width: 55em) {
+		height: 100%;
+		padding: 2em 0;
+	}
+	
+	.views-nav {
+		height: 100vh;
+		@include clear-fix;
+		
+		@media screen and (max-width: 55em) {
+			height: 100%;
+		}
+				
+	}
+
+	h2 {
+		color: $aqua;
+		text-align: center;
+		@include transition(all .5s ease);
+		width: 100%;
+		padding: 15vh 0 0;
+		
+		@media screen and (max-width: 55em) {
+			padding: 0;
+		}
+		
+		@media screen and (max-width: 44em) {
+			width: 90%;
+			font-size: 4em;
+		}
+
+	}
+	a {
+		color: $dark-color;
+		&:hover {
+			color: $aqua;
+		}
+		
+		&.see-more-link {
+			@media screen and (max-width: 44em) {
+				font-size: 1.75em;
+			}
+		}
+		
+		
+	}
+}
+
+.work-thumbs {
+	@include clear-fix;
+
+	li {
+		width: 25%;
+		height: 0;
+		padding-bottom: 25%;
+		float: left;
+		display: block;
+		position: relative;
+		overflow: hidden;
+		background: lighten($gray, 60%);
+		@include transition(all .25 ease-in-out);
+		text-align: center;
+		
+		a {
+			display: block;
+			margin: 0 !important;
+		
+			span {
+				@include transition(all .25s ease-in-out);	
+				position: absolute;
+				top: -9em;
+				display: block;
+				width: 100%;
+				
+				@media screen and (max-width: 55em) { top: 2em; }
+				@media screen and (max-width: 44em) { top: 1.2em; }
+
+				
+				h3 { margin: 0; font-size: 2em; }
+				
+				h4 { text-transform: none; font-family: $ckf-paragraphs; margin: 0;  }
+			
+			}
+		
+			img { 
+				opacity: 1;	
+				@include transition(all .25s ease-in-out);	
+				position: relative;
+				bottom: 0;
+				
+				&.iphone {
+					width: 35%;
+					margin: 13% 0 0;
+					
+					@media screen and (max-width: 55em) { width: 32%; margin: 25% 0 0; }
+					@media screen and (max-width: 44em) { margin: 27% 0 0; }
+
+
+				}
+				
+				&.ipad {
+					width: 50%;
+					margin: 15% 0 0;
+					
+					@media screen and (max-width: 55em) { width: 48%; margin: 25% 0 0; }
+					@media screen and (max-width: 44em) { margin: 27% 0 0; }
+
+					
+				}
+				
+				&.laptop {
+					width: 90%;
+					margin: 26% 0 0;
+					
+					@media screen and (max-width: 55em) { margin: 33.5% 0 0; }
+					@media screen and (max-width: 44em) { margin: 35.5% 0 0; }
+
+					
+				}
+				
+				&.thumbs {
+					width: 85%;	
+					margin: 15% 0 0;
+					
+					@media screen and (max-width: 55em) { width: 79%; margin: 25% 0 0; }
+					@media screen and (max-width: 44em) { margin: 26% 0 0; }
+
+					
+				}
+				
+			}
+			
+			&:hover {
+				text-decoration: none;
+				@include transition(all .25s ease-in-out);	
+			
+				span {
+					@include transition(all .25s ease-in-out);	
+					top: 3em;
+					color: $dark-color;
+					
+					@media screen and (max-width: 55em) { top: 2em; }
+					@media screen and (max-width: 44em) { top: 1.2em; }
+
+					
+				}
+				
+				img {
+					@include transition(all .25s ease-in-out);	
+					opacity: .3;
+					bottom: -5em;
+					@media screen and (max-width: 55em) { bottom: 0; }
+				}
+			
+			}
+			
+		}
+
+		&:nth-child(2) {
+			background: lighten($gray, 55%);	
+			
+			span {
+				
+				@media screen and (max-width: 55em) { top: 4.3em; }
+				@media screen and (max-width: 55em) { top: 2.8em; }
+				
+			}
+			
+			&:hover span {
+				@media screen and (max-width: 55em) { top: 2.8em; }
+			}
+		}
+
+		&:nth-child(3) {
+			background: lighten($gray, 50%);	
+		}
+
+		&:nth-child(4) {
+			background: lighten($gray, 45%);
+		}
+		
+		@media screen and (max-width: 55em) {
+			width:50%;
+			padding-bottom: 50%;
+		}
+		
+		@media screen and (max-width: 44em) {
+			width: 90%;
+			height: 0;
+			padding-bottom: 90%;
+			margin: 0 5% 5%;
+		}
+
+	}
+
+}
+
+.views-main {
+		@include clear-fix;
+		overflow: scroll;
+		height: 100vh;
+		padding-bottom: 4em;
+		
+		@media screen and (max-width: 69.5em) {
+			height: 100%;
+		}
+}
+
+.portfolio-detail  {
+		
+	@media screen and (max-width: 44em) {			
+		overflow: hidden;
+	}
+	
+	.interior-wrap {
+		padding: 3em 0;
+		
+		@media screen and (max-width: 44em) {
+			width: 90%;
+			padding: 0 5%;
+		}
+		
+	}
+
+	img {
+		height: auto;
+		
+		@media screen and (max-width: 44em) {
+			width: 100%;
+		}
+		
+		&.laptop {
+			margin: 0 0 2em -17.5%;
+		
+			@media screen and (max-width: 44em) {
+				width: 140%;
+				margin: 0 0 .5em -20%;
+			}
+			
+		}
+		&.iphone {
+			margin: 1em 1em 2em 1.55em;
+			text-align: center;
+			
+			@media screen and (max-width: 44em) {
+				margin: 0 0 1em;
+			}
+			
+			&:nth-child(even) {
+				margin: 1em 1.55em 2em 1em;
+			
+				@media screen and (max-width: 44em) {
+					margin: 0;
+				}
+				
+			}
+		}
+		&.browser {
+			margin-bottom: 2em;
+		
+			@media screen and (max-width: 44em) {
+				width: 100%;
+				margin: 0;
+			}
+		}
+	}
+	
+	h2#project-title {
+		text-align: right;
+		font-size: 1.5em;
+		border-bottom: 2px solid $gray;
+		padding: 2em 0;
+		margin: 0 0 2em;
+		
+		@media screen and (max-width: 44em) {
+			width: 100%;
+			text-align: center;
+			padding-bottom: 1em;
+			margin-bottom: 1em;
+		}
+				
+		span {
+			font-size: 1.65em;
+			font-family: $ckf-paragraphs;
+			text-transform: none;
+			font-weight: 300;
+			display: block;
+			margin-top: .25em;
+			
+			@media screen and (max-width: 44em) {
+				line-height: 1em;
+				font-size: 1.35em;
+			}
+			
+		}
+		
+		a {
+			float: left;
+			font-size: 1em;
+		
+			@media screen and (max-width: 44em) {
+				display: block;
+				text-align: center;
+			}
+		}
+	}
+	
+	
+	
+	p {
+		font-size: 1.2em;
+		line-height: 1.75em;
+		font-weight: 300;
+		margin-bottom: 3em;
+		color: $gray;
+		
+		@media screen and (max-width: 44em) {
+			font-size: 1em;
+			margin-bottom: 1.5em;
+		}
+
+	
+		a {
+			display: inline !important; 
+			text-decoration: underline;
+			
+			&:hover {
+				text-decoration: none;
+			}
+			
+		}
+	
+	}
+}
+	
+
+/*********************
+CONTACT STYLES
+*********************/
+
+
+
+.hai {
+	height: 100vh;
+	width: 100%;
+	margin: 0;
+	background-image: url(../img/triangle-bg-mint.svg);
+	background-color: darken($bright-color, 2%);
+
+	@media screen and (max-width: 55em) {
+		height: 100%;
+		padding: 2em 0;
+	}
+
+	h2 {
+		margin: 0 auto;
+		padding: 30vh 0 0;
+		color: $white;
+		
+		@media screen and (max-width: 55em) {
+			padding: 0;
+		}
+		
+	}
+
+	h3 {
+		font-family: $ckf-paragraphs;
+		font-size: 3.585em;
+		margin: 0 auto;
+		text-align: center;
+		text-transform: none;
+		font-weight: 100;
+		
+		a {
+			color: $white;
+			@include transition(all .25s ease);
+
+			@media screen and (max-width: 55em) {
+				font-weight: 300;
+			}
+			
+			@media screen and (max-width: 44em) {
+				font-weight: 700;
+				margin-top: .5em;
+				display: inline-block;
+			}
+			
+			span {
+			
+				@media screen and (max-width: 44em) {
+					display: none;
+				}
+			
+			}
+
+			&:hover {
+				border-bottom: 3px solid $white;
+				text-decoration: none;
+			}
+
+		}
+		
+		@media screen and (max-width: 55em) {
+			font-size: 3.5em;
+		}
+
+		@media screen and (max-width: 44em) {
+			font-size: 1.65em;
+			font-weight: 700;
+			width: 98%;
+		}
+
+	}
+}
+
+.more-info {
+	overflow: hidden;
+	margin: 20px auto 0;
+	background: url(../img/social-icon-line.svg) no-repeat center center;
+	
+	@media screen and (max-width: 44em) {
+		width: 90%;
+	}
+	
+}
+
+ul#social-icons {
+	margin: 0 auto;
+	width: 328px;
+	
+	@media screen and (max-width: 44em) {
+		width: 100%;
+	}
+	
+	li {
+		float: left;
+		margin: 0 20px 0 0;
+		
+		@media screen and (max-width: 44em) {
+			width: 12.6666667%;
+			margin: 0 2%;
+		}
+		
+		&:last-child {
+			margin-right: 0;
+			
+			@media screen and (max-width: 44em) {
+				width: 12.6666667%;
+				margin-right: 2%;
+			}
+			
+		}
+		
+		a{
+			width: 38px;
+			height: 38px;
+			display: block;
+			text-indent: -9999px;
+			background-size: cover;	
+			opacity: 0.8;
+			@include transition(all .25s ease);
+			
+			&:hover {
+				opacity: 1;
+			}
+			
+		}
+		
+	}
+	
+	li.facebook a{
+		background-image: url(../img/social-icon-facebook.svg);
+	}
+	
+	li.dribbble a{
+		background-image: url(../img/social-icon-dribbble.svg);
+	}
+	
+	li.twitter a{
+		background-image: url(../img/social-icon-twitter.svg);
+	}
+	
+	li.pinterest a{
+		background-image: url(../img/social-icon-pinterest.svg);
+	}
+	
+	li.linkedin a{
+		background-image: url(../img/social-icon-linkedin.svg);
+	}
+	
+	li.email a{
+		background-image: url(../img/social-icon-email.svg);
+	}
+	
+}
+
+.contact-footer {
+	height: auto;
+	
+	.interior-wrap {
+		padding: 3em 0;
+	}
+
+	h2 {
+		width: auto;
+		padding: 0;
+		float: left;
+	}
+	
+	ul {
+		float: right;
+		margin-top: 0;
+	}
+	
+	.more-info {
+		background: none;
+		width: auto;
+	}
+}
+
+
+/*********************
+FOOTER STYLES
+*********************/
+
+.snap-buffer {
+	background-color: darken($bright-color, 2%) ;
+	height: .5em;
+	position: relative;
+}
